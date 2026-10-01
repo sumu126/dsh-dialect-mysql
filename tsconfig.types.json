@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@deepseek-ai/cordis": ["../../../deepseek-harness/vendor/cordis/lib/types/index.d.ts"],
+      "@deepseek-ai/schemastery": ["../../../deepseek-harness/vendor/schemastery/lib/types/index.d.ts"],
+      "dsh-ds-db/dialect-api": ["../../lib/types/dialect-api.d.ts"]
+    }
+  }
+}

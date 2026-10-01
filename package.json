@@ -1,0 +1,38 @@
+{
+  "name": "dsh-dialect-mysql",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MySQL dialect for dsh-ds-db: registers the `mysql` type so the plugin's read-only tools, settings page, and type chooser work against MySQL.",
+  "type": "module",
+  "main": "lib/index.js",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "prepare": "npm run build",
+    "prepack": "npm run build",
+    "test": "node --import tsx/esm --test tests/sql-guard.test.ts tests/dialect.test.ts tests/contract-audit.test.ts",
+    "verify": "node --import tsx/esm scripts/verify.ts"
+  },
+  "dependencies": {
+    "mysql2": "^3.14.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/schemastery": "*",
+    "dsh-ds-db": "*"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/schemastery": { "optional": true },
+    "dsh-ds-db": { "optional": true }
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "*",
+    "@types/node": "^22.20.0",
+    "esbuild": "^0.25.0",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3"
+  }
+}
