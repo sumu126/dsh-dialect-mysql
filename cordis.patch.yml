@@ -1,0 +1,10 @@
+# The layer this bundle contributes: one row, the MySQL dialect.
+#
+# It is a bundle of its own so a deployment installs the database type it wants
+# rather than receiving one with the plugin: install `dsh-ds-db` first (the
+# registry and the tools), then install this package for MySQL, and a third
+# party's dialect the same way. The core names no database type, so nothing here
+# is special-cased — this row has the shape any dialect package would declare.
+- insert:
+    - id: dialect-mysql
+      name: 'dsh-dialect-mysql'
