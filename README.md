@@ -1,13 +1,17 @@
 # dsh-dialect-mysql
 
-MySQL for [`dsh-ds-db`](https://www.npmjs.com/package/dsh-ds-db): registers the `mysql` type, so the plugin's read-only tools, its settings page, and its type chooser work against MySQL.
+MySQL for [`dsh-ds-db`](https://github.com/sumu126/ds-db-plugin): registers the `mysql` type, so the plugin's read-only tools, its settings page, and its type chooser work against MySQL.
+
+> **这个包也单独发布在一个仓里**：[`dsh-dialect-mysql`](https://github.com/sumu126/dsh-dialect-mysql)。
+> 那是个**发布镜像**——源在这里，即 `ds-db-plugin` 的 `dialects/mysql/`；问题与改动请提到 `ds-db-plugin`。
 
 ```sh
-# 通常由 dsh-ds-db 作为依赖带上；单独安装用于显式固定版本
-dsh plugin --profile web add dsh-ds-db
+# 核心与方言是两个独立的 bundle：先装核心，再装这个包
+dsh plugin --profile web add ./dsh-ds-db-0.1.0.tgz
+dsh plugin --profile web add ./dsh-dialect-mysql-0.1.0.tgz
 ```
 
-它和第三方方言包的形状**完全一致**——只是随插件发布，不是特殊的那一个。要从零写一个方言，看仓库里的 [`dialects/_template`](https://github.com/sumu126/ds-db-plugin/tree/main/dialects/_template)，契约见 [方言扩展 API 文档](https://github.com/sumu126/ds-db-plugin/blob/main/docs/04_API_Docs/方言扩展_API.md)。
+它和第三方方言包的形状**完全一致**——核心不引用它，也不内置任何数据库类型。要从零写一个方言，看仓库里的 [`dialects/_template`](https://github.com/sumu126/ds-db-plugin/tree/main/dialects/_template)，契约见 [方言扩展 API 文档](https://github.com/sumu126/ds-db-plugin/blob/main/docs/04_API_Docs/方言扩展_API.md)。
 
 | | |
 | --- | --- |
